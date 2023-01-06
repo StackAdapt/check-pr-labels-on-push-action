@@ -7,13 +7,27 @@ on:
   pull_request:
 
 jobs:
-  deployment:
+  plan:
     runs-on: ubuntu-latest
     environment: 
       name: dev
     steps:
-      - name: secret
+      - name: secret dev
+        run: echo ${{ secrets.DEV_TOKEN }}
+
+      - name: deploy
+        run: ls
+
+  deploy:
+    needs: [plan]
+    runs-on: ubuntu-latest
+    environment:
+      name: prod
+    steps:
+      - name: secret prod
         run: echo ${{ secrets.PROD_TOKEN }}
 
       - name: deploy
         run: ls
+
+
