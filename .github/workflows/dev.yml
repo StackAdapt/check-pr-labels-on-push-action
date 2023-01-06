@@ -7,10 +7,28 @@ on:
   pull_request:
 
 jobs:
-  deployment:
+  plan:
     runs-on: ubuntu-latest
-#    environment: 
-#      name: prod
+    environment: 
+      name: dev
     steps:
+      - name: check
+        run: echo ${{ secrets.DEV_TOKEN }}
+
       - name: deploy
         run: ls
+
+  deploy:
+    needs: [plan]
+    if: ${{ github.event_name == 'push' }}
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+    steps:
+      - name: check
+        run: echo ${{ secrets.PROD_TOKEN }}
+
+      - name: deploy
+        run: ls
+
+
