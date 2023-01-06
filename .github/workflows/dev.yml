@@ -20,6 +20,7 @@ jobs:
 
   deploy:
     needs: [plan]
+    if: ${{ github.event_name == 'push' }}
     runs-on: ubuntu-latest
     environment:
       name: production
