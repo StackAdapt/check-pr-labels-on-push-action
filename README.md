@@ -1,2 +1,2 @@
-# test environment
+# DEV environment
 
