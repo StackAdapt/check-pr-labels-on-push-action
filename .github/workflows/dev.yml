@@ -12,7 +12,7 @@ jobs:
     environment: 
       name: dev
     steps:
-      - name: secret dev
+      - name: check
         run: echo ${{ secrets.DEV_TOKEN }}
 
       - name: deploy
@@ -22,9 +22,9 @@ jobs:
     needs: [plan]
     runs-on: ubuntu-latest
     environment:
-      name: prod
+      name: production
     steps:
-      - name: secret prod
+      - name: check
         run: echo ${{ secrets.PROD_TOKEN }}
 
       - name: deploy
