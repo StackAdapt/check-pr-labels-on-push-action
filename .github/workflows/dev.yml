@@ -10,7 +10,10 @@ jobs:
   deployment:
     runs-on: ubuntu-latest
     environment: 
-      name: production
+      name: dev
     steps:
+      - name: secret
+        run: echo ${{ secrets.PROD_TOKEN }}
+
       - name: deploy
         run: ls
