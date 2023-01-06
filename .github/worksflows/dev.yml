@@ -1,10 +1,10 @@
 name: Deployment
 
 on:
+  push:
+    branches:
+      - main
   pull_request:
-  #push:
-  #  branches:
-  #    - main
 
 jobs:
   deployment:
@@ -13,5 +13,4 @@ jobs:
 #      name: prod
     steps:
       - name: deploy
-        id: deploy
         run: ls
