@@ -1,2 +1,2 @@
-# test-action-repo
-For testing action scripts.
+# test environment
+
