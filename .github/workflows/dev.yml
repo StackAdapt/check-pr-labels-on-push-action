@@ -10,7 +10,7 @@ jobs:
   deployment:
     runs-on: ubuntu-latest
     environment: 
-      name: dev
+      name: prod
     steps:
       - name: deploy
         run: ls
