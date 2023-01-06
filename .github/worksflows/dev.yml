@@ -1,0 +1,17 @@
+name: Deployment
+
+on:
+  pull_request:
+  #push:
+  #  branches:
+  #    - main
+
+jobs:
+  deployment:
+    runs-on: ubuntu-latest
+    environment: 
+      name: prod
+    steps:
+      - name: deploy
+        id: deploy
+        run: ls
